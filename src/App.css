@@ -1,0 +1,171 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #f8fbff;
+  background: #06121d;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, #12253d 0%, #08131d 55%, #040a12 100%);
+}
+
+button {
+  font: inherit;
+}
+
+.game-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.memory-game-shell {
+  width: min(100%, 560px);
+  background: rgba(10, 17, 29, 0.8);
+  border: 1px solid rgba(143, 167, 255, 0.35);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  padding: 1.25rem;
+  backdrop-filter: blur(8px);
+}
+
+.memory-game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.memory-game-label {
+  margin: 0 0 0.3rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  color: #8db4ff;
+}
+
+.memory-game-header h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.memory-game-reset {
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem 1.1rem;
+  background: linear-gradient(135deg, #7dd3fc, #8b5cf6);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.memory-game-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.memory-game-stat {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 0.8rem 0.75rem;
+  text-align: center;
+  color: #dfe8ff;
+}
+
+.memory-game-stat span {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.memory-game-stat strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.memory-game-status {
+  min-height: 1.8rem;
+  margin-bottom: 1rem;
+  color: #afc8ff;
+  font-weight: 600;
+}
+
+.memory-game-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.memory-game-card {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  color: white;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.memory-game-card:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 20px rgba(96, 165, 250, 0.2);
+}
+
+.memory-game-card.is-open {
+  background: linear-gradient(135deg, #dbeafe, #f0fdf4);
+  color: #0f172a;
+}
+
+.memory-game-card.is-matched {
+  background: linear-gradient(135deg, #86efac, #4ade80);
+  color: #052e16;
+  box-shadow: 0 10px 20px rgba(74, 222, 128, 0.28);
+}
+
+.memory-game-card:disabled {
+  cursor: default;
+}
+
+@media (max-width: 520px) {
+  .memory-game-shell {
+    padding: 1rem;
+  }
+
+  .memory-game-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .memory-game-board {
+    gap: 0.6rem;
+  }
+}
